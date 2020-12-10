@@ -1,0 +1,36 @@
+  eventlisteners for input actions
+  
+  // const inputTitle = document.querySelector('#title');
+  // inputTitle.addEventListener('input', handleBookTitle);
+
+  // const inputAuthor = document.querySelector('#author');
+  // inputAuthor.addEventListener('input', handleBookAuthor);
+
+  // const inputCategory = document.querySelector('#category');
+  // inputCategory.addEventListener('change', handleBookCategory);
+
+
+  ----------------
+
+  FUNCTIONS for eventlisteners (i.e. eventHandlers)
+
+    // const handleBookTitle = function (event) {
+  //   console.log(event.target.value);
+  //   const resultItem = document.createElement('li');
+  //   resultItem.textContent = (`Title: ${event.target.title}`);
+
+  // };
+
+  // const handleBookAuthor = function (event) {
+  //   console.log(event.target.value);
+  //   const resultItem = document.createElement('li');
+  //   resultItem.textContent = (`Author: ${event.target.author}`);
+
+  // };
+
+  // const handleBookCategory = function (event) {
+  //   console.log(event.target.value);
+  //   const resultItem = document.createElement('li');
+  //   resultItem.textContent = (`Category: ${event.target.category}`);
+
+  // };
