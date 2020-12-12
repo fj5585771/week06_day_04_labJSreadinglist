@@ -1,20 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // GRABBING WHOLE FORM ITEM AND FUNCTION FOR FORM HANDLING PASSED
+  // GRABBING WHOLE FORM ITEM FOR HANDLER FUNCTION 
   const inputForm = document.querySelector('#new-item-form');     
   inputForm.addEventListener('submit', handleFormSubmission);
 
-
-  // CREATE DELETE BUTTON AFTER ENTRY SUBMISSION
-  const clearButton = document.createElement('button'); 
-  clearButton.textContent = ('❌');
-  clearButton.addEventListener('click', handleClearButton);
-
-  // APPEND NEW BUTTON TO FORM ELEMENT
-  inputForm.appendChild(clearButton);
-
-  // const changedForm = document.querySelector("#new-item-form");
-  // changedForm.appendChild(clearButton);
+     // CREATE DIV ID AND APPEND DELETE BUTTON CHILD
+     const newButton = document.createElement('div'); 
+     newButton.className = 'button1';
+     const clearButton = document.createElement('button'); 
+     newButton.appendChild(clearButton);
+     clearButton.textContent = ('❌');
+ 
+     // APPEND NEW BUTTON TO FORM ELEMENT
+     inputForm.appendChild(newButton);
 
   const resetForm = document.querySelector('#new-item-form');  
   // Event listener after saving entry > reset input fields > AND add button
@@ -28,9 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     event.preventDefault();
     
-    // GRAB UNORDERED LIST
+    // GRAB UNORDERED LIST and INPUT FORM;
 
-    const resultItems = document.querySelector('#reading-list');  
+    const resultItems = document.querySelector('#reading-list'); 
 
     // CREATE DIV   
 
@@ -54,26 +52,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const newCategory = document.createElement('li');
     newCategory.textContent = category;
 
-    // APPEND NEW CHILD DIV('LI') ITEMS TO NEW '#READING_ITEM' PARENT DIV
+    // APPEND NEW CHILD DIV('LI') ITEMS TO NEW ('#READING_ITEM') PARENT DIV
 
     divChild.appendChild(newTitle);
     divChild.appendChild(newAuthor);
     divChild.appendChild(newCategory);
 
     // APPEND DIV TO READING LIST DIV
-    
+
     resultItems.appendChild(divChild);
+
   };
 
   const handleResettingInput = function () {
     const resetForm = document.querySelector('#new-item-form');  
     resetForm.reset();
 
-  };
-
-  const handleClearButton = function () {
-    const readingList = document.querySelector('#reading-list');
-      readingList.innerHTML = '';
+  // };
       
+    
   };
-  
