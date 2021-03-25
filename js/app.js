@@ -1,71 +1,59 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // GRABBING WHOLE FORM ITEM FOR HANDLER FUNCTION 
-  const inputForm = document.querySelector('#new-item-form');     
-  inputForm.addEventListener('submit', handleFormSubmission);
-    
-     // CREATE DIV ID AND APPEND DELETE BUTTON CHILD
-     const newButton = document.createElement('div'); 
-     newButton.className = 'button1';
-     const clearButton = document.createElement('button'); 
-     newButton.appendChild(clearButton);
-     clearButton.textContent = ('❌');
- 
-     // APPEND NEW BUTTON TO FORM ELEMENT
-     inputForm.appendChild(newButton);
+  const form = document.querySelector('#new-item-form');
+  form.addEventListener('submit', handleFormSubmission);
+  form.addEventListener('submit', handleResettingInput);
+  
+  const list = document.querySelector('#reading-list');
+  list.addEventListener('click', handleClearButton);
 
-  // Event listener after saving entry > reset input fields 
-  const resetForm = document.querySelector('#new-item-form');  
-  resetForm.addEventListener('submit', handleResettingInput);
 
 });
 
   const handleFormSubmission = function (event) {
-
-    // PREVENT DEFAULT = stops POST request from happening
-
     event.preventDefault();
-    
-    // GRAB UNORDERED LIST and INPUT FORM;
+    console.log(event);
 
-    const resultItems = document.querySelector('#reading-list'); 
-
-    // CREATE DIV   
-
-    const divChild = document.createElement('div');
-
-    // GIVE DIV CHILD CLASS NAME - for later styling 
-
-    divChild.classList.add('reading_item');
-
-
-    // CREATE VARIABLES FOR NEWLY CREATED LI ITEMS, THEN GRAB AND INSERT INPUT VARIABLES INTO LI ELEMENTS
-
+    //access DOM element values
     const title = event.target.title.value;
     const author = event.target.author.value;
     const category = event.target.category.value;
+    
+    //access elements and append changing content. 
+    const readList = document.querySelector('#reading-list');
 
-    const newTitle = document.createElement('li');
-    newTitle.textContent = title;
-    const newAuthor = document.createElement('li');
-    newAuthor.textContent = author;
-    const newCategory = document.createElement('li');
-    newCategory.textContent = category;
+    //create DIV parent for new entry
+    const entryDiv = document.createElement('div');
+    entryDiv.setAttribute('id', 'div-child');
+    readList.appendChild(entryDiv);
 
-    // APPEND NEW CHILD DIV('LI') ITEMS TO NEW ('#READING_ITEM') PARENT DIV
+    // create new child elements for UL and append DOM values
+    const listTitle = document.createElement('li');
+    listTitle.textContent = title;
+    entryDiv.appendChild(listTitle);
+    const listAuthor = document.createElement('li');
+    listAuthor.textContent = author;
+    entryDiv.appendChild(listAuthor);
+    const listCategory = document.createElement('li');
+    listCategory.textContent = category;
+    entryDiv.appendChild(listCategory);
 
-    divChild.appendChild(newTitle);
-    divChild.appendChild(newAuthor);
-    divChild.appendChild(newCategory);
+    const clearButton = document.createElement('button');
+    clearButton.textContent = 'remove';
+    clearButton.setAttribute('id', '#clear-button');
+    listCategory.appendChild(clearButton);
 
-    // APPEND DIV TO READING LIST DIV
-
-    resultItems.appendChild(divChild);
 
   };
 
   const handleResettingInput = function () {
-    const resetForm = document.querySelector('#new-item-form');  
-    resetForm.reset();
-    // HANDLER RESETS FORM INPUT FIELDS
+    const form = document.querySelector('#new-item-form');
+    form.reset();
+    
   };
+
+  const handleClearButton = function (){
+
+    const list = document.querySelector('#reading-list #div-child');
+    list.textContent = '';
+  }
