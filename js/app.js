@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // GRABBING WHOLE FORM ITEM FOR HANDLER FUNCTION 
   const inputForm = document.querySelector('#new-item-form');     
   inputForm.addEventListener('submit', handleFormSubmission);
-
+    
      // CREATE DIV ID AND APPEND DELETE BUTTON CHILD
      const newButton = document.createElement('div'); 
      newButton.className = 'button1';
@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
      // APPEND NEW BUTTON TO FORM ELEMENT
      inputForm.appendChild(newButton);
 
+  // Event listener after saving entry > reset input fields 
   const resetForm = document.querySelector('#new-item-form');  
-  // Event listener after saving entry > reset input fields > AND add button
   resetForm.addEventListener('submit', handleResettingInput);
 
 });
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const divChild = document.createElement('div');
 
-    // GIVE DIV CHILD CLASS NAME
+    // GIVE DIV CHILD CLASS NAME - for later styling 
 
     divChild.classList.add('reading_item');
 
@@ -67,8 +67,5 @@ document.addEventListener('DOMContentLoaded', () => {
   const handleResettingInput = function () {
     const resetForm = document.querySelector('#new-item-form');  
     resetForm.reset();
-
-  // };
-      
-    
+    // HANDLER RESETS FORM INPUT FIELDS
   };
