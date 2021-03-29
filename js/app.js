@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const clearButton = document.createElement('button');
     clearButton.textContent = 'remove';
     clearButton.setAttribute('id', '#clear-button');
-    listCategory.appendChild(clearButton);
+    entryDiv.appendChild(clearButton);
 
 
   };

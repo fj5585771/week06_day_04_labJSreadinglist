@@ -1,3 +1,51 @@
 body {
   font-family: Palatino;
 }
+
+#form-wrapper {
+  /* background-color:cadetblue; */
+  font-size: 100%;
+  padding: 5px 5px 5px 30px;
+  border: 1px solid;
+  border-radius: 5px;
+  display: block;
+  margin-bottom: 10px;
+  background-repeat: no-repeat;
+}
+
+input, select {
+  
+  padding: 5px 5px 5px 5px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+
+}
+
+#reading-list {
+  display: flex;
+} 
+
+#reading-list > #div-child {
+  font-size: 100%;
+  padding: 15px;
+  border: 1px solid;
+  border-radius: 5px;
+  display: block;
+  margin: 10px;
+  list-style: none;
+  background-color: azure;
+}
+
+li {
+  list-style: none;
+  padding: 5px;
+  font-style: normal;
+}
+
+
+#clear-button {
+  float: left;
+  padding: 5px 5px 5px 5px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
